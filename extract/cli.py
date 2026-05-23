@@ -2,6 +2,7 @@ import sys
 import argparse
 from .archive import extract_file
 from .formats import detect_format, list_supported_extensions
+from .utils import success, error, warning
 
 def main():
     parser = argparse.ArgumentParser(
@@ -30,9 +31,12 @@ def main():
 
     for archive in args.archives:
         dest = args.output or archive.split(".")[0]
-        print(f"Extracting {archive} to {dest}")
-        extract_file(archive, dest, verbose=args.verbose)
-        print("Done.")
-    
+        try:
+            extract_file(archive,dest, verbose=args.verbose)
+            print(success(f"Extracted {archive} to {dest}"))
+        except Exception as e:
+            print(error(f"Failed to extract {archive}: {e}"))
+
 def entry_point():
-    sys.exit(main())
+    main()
+    sys.exit(0)
