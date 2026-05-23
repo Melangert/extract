@@ -3,6 +3,8 @@
 
 Universal archive extraction tool for Linux.
 
+![extract --list](screenshot.png)
+
 ## Installation
 
 ```bash
