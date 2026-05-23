@@ -19,7 +19,7 @@ def _decompresss_single(src:str, dest: str, open_fn, suffix: str, verbose: bool)
 
 
 
-def  extract_file(src: str, dest: str,  verbose: bool) -> None:
+def  extract_file(src: str, dest: str,  verbose: bool = False) -> None:
     fmt = detect_format(src)
 
     if  fmt is None: 
@@ -38,7 +38,7 @@ def  extract_file(src: str, dest: str,  verbose: bool) -> None:
             for member in tf.getmembers():
                 if verbose:
                     print(f"Extracting {member.name}")
-                tf.extract(member, dest)
+                tf.extract(member, dest, filter='data')
     
        
     if fmt == "gz":
@@ -55,12 +55,12 @@ def  extract_file(src: str, dest: str,  verbose: bool) -> None:
             for member in tf.getmembers():
                 if verbose:
                     print(f"Extracting {member.name}")
-                tf.extract(member, dest)
+                tf.extract(member, dest, filter='data')
     
     if fmt == "tar.xz":
         with tarfile.open(src, "r:xz") as tf:
             for member in tf.getmembers():
                 if verbose:
                     print(f"Extracting {member.name}")
-                tf.extract(member, dest)
+                tf.extract(member, dest, filter='data')
 

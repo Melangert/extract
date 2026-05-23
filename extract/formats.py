@@ -6,7 +6,7 @@ def detect_format(path: str) -> str | None:
         return "zip"
 
     if header[:2] == b"\x1f\x8b" and (path.endswith("tar.gz") or path.endswith(".tgz")):
-        return ".tar.gz"
+        return "tar.gz"
     
     if header[:2] == b"\x1f\x8b":
         return "gz"
@@ -14,21 +14,15 @@ def detect_format(path: str) -> str | None:
     if header[:3] == b"BZh" and (path.endswith(".tar.bz2") or path.endswith(".tbz2")):
         return "tar.bz2"
 
-        if header[:6] == b"\xfd7zXZ\x00" and (path.endswith(".tar.xz") or path.endswith(".txz")):
-            return "tar.xz" 
+    if header[:6] == b"\xfd7zXZ\x00" and (path.endswith(".tar.xz") or path.endswith(".txz")):
+        return "tar.xz" 
 
     if header[:3] == b"BZh":
         return "bz2"
 
     if header[:6] == b"\xfd7zXZ\x00":
         return "xz"
-
     
-
-
-
-
-
     return None
 
 
