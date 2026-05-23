@@ -37,3 +37,8 @@ extract --help
 - .tar.bz2, .tbz2
 - .tar.xz, .txz
 - .gz, .bz2, .xz
+
+## Credits
+
+Built with guidance from Claude (Anthropic) as a learning project. 
+All code written by me
