@@ -31,7 +31,7 @@ def main():
     for archive in args.archives:
         dest = args.output or archive.split(".")[0]
         print(f"Extracting {archive} to {dest}")
-        extract_file(archive, dest)
+        extract_file(archive, dest, verbose=args.verbose)
         print("Done.")
     
 def entry_point():
