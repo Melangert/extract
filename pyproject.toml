@@ -8,8 +8,9 @@ version = "1.0.0"
 description = "Universal archive extraction tool"
 requires-python = ">=3.11"
 
+
 [project.scripts]
-extract = "extract.cli:entrypoint"
+extract = "extract.main:entrypointt"
 
 [tool.setuptools.packages.find]
 where = ["."]

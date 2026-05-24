@@ -22,6 +22,9 @@ def detect_format(path: str) -> str | None:
 
     if header[:6] == b"\xfd7zXZ\x00":
         return "xz"
+
+    if path.endswith(".tar"):
+        return "tar"
     
     return None
 

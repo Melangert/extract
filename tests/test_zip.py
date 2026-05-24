@@ -19,7 +19,7 @@ def test_extract_zip(tmp_path):
     assert (out / "hello.txt").exists()
     assert (out / "hello.txt").read_text() == "hello world"
 
-    def test_extract_zip_nested(tmp_path):
+def test_extract_zip_nested(tmp_path):
         # create a nested zip file
         archive = tmp_path / "test.zip"
         with zipfile.ZipFile(archive, "w") as zf:

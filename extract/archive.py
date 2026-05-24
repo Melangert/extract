@@ -19,11 +19,12 @@ def _decompresss_single(src:str, dest: str, open_fn, suffix: str, verbose: bool)
 
 
 
-def  extract_file(src: str, dest: str,  verbose: bool = False) -> None:
+def  extract_file(src: str, dest: str,  verbose: bool = False):
     fmt = detect_format(src)
 
-    if  fmt is None: 
-        raise ValueError (f"Unsupported archive format for file: {src}")
+    if fmt is None:
+        raise ValueError (f"Unsupported file format: {src}")  
+
     
     if fmt == "zip":
         with zipfile.ZipFile(src, "r") as zf:
@@ -64,3 +65,9 @@ def  extract_file(src: str, dest: str,  verbose: bool = False) -> None:
                     print(f"Extracting {member.name}")
                 tf.extract(member, dest, filter='data')
 
+    if fmt == "tar":
+        with tarfile.open(src, "r:") as tf:
+            for member in tf.getmembers():
+                if verbose:
+                    print(f"Extracting {member.name}")
+                tf.extract(member, dest, filter='data') 
