@@ -42,5 +42,5 @@ extract --help
 
 ## Credits
 
-Built with guidance from Claude as a learning project. 
-All code written by me
+Built with help from claude. 
+
