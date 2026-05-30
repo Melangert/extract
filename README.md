@@ -6,7 +6,8 @@ I built this because i didnt like having to use many different ways of extractin
 
 ![extract --list](screenshot.png)
 
-## Installation
+
+## How to install
 
 ```bash
 git clone https://github.com/Melangert/extract
@@ -17,7 +18,7 @@ sudo ln -s $(pwd)/extract.sh /usr/local/bin/extract
 ## Commands
 
 ```bash
-# Extract a file
+# Extract a file(must be in file directory first)
 extract archive.zip
 
 # Extract to a specific directory
@@ -26,14 +27,14 @@ extract archive.tar.gz -o ~/Desktop
 # Detect format without extracting
 extract --detect archive.zip
 
-# List supported formats
+# List supported extract formqts
 extract --list
 
 # Show help
 extract --help
 ```
 
-## Supported formats
+## currently supported formats
 
 - .zip, .jar, .apk
 - .tar, .tar.gz, .tgz
