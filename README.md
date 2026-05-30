@@ -7,6 +7,12 @@ I built this because i didnt like having to use many different ways of extractin
 ![extract --list](screenshot.png)
 
 
+## Requirements 
+-Python 
+-Shell
+-Any linux distro
+
+
 ## How to install
 
 ```bash
