@@ -41,7 +41,4 @@ extract --help
 - .tar.xz, .txz
 - .gz, .bz2, .xz
 
-## Credits
-
-Built with help from claude. 
 
