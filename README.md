@@ -43,4 +43,5 @@ extract --help
 - .gz, .bz2, .xz
 
 
+## Credits
 code not read me made with help from claude
