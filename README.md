@@ -9,7 +9,9 @@ I built this because i didnt like having to use many different ways of extractin
 
 ## Requirements 
 -Python 
+
 -Shell
+
 -Any linux distro
 
 
