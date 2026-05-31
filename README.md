@@ -44,11 +44,11 @@ extract --help
 
 ## currently supported formats
 
-- .zip, .jar, .apk
-- .tar, .tar.gz, .tgz
+-.zip, .jar, .apk
+-.tar, .tar.gz, .tgz
 - .tar.bz2, .tbz2
-- .tar.xz, .txz
-- .gz, .bz2, .xz
+-.tar.xz, .txz
+-.gz, .bz2, .xz
 
 
 ## Credits
