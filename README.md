@@ -1,7 +1,7 @@
 
-# extract
+# Extract
 
-Universal archive extraction tool for Linux.
+An archive extraction tool for linux that supports many file types.
 I built this because i didnt like having to use many different ways of extracting when extracting a different file  type like tar in terminal
 
 ![extract --list](screenshot.png)
@@ -50,4 +50,4 @@ extract --help
 
 
 ## Credits
-code not read me made with help from claude
+Debugged and edited with claude
