@@ -48,8 +48,8 @@ extract --help
 
 -.tar, .tar.gz, .tgz
 
-- .tar.bz2, .tbz2
-- 
+-.tar.bz2, .tbz2
+  
 -.tar.xz, .txz
   
 -.gz, .bz2, .xz
