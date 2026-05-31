@@ -1,5 +1,5 @@
 """
-extract  - Universal archive extraction tool for linux.
+extract  - An archive extraction tool for linux that supports many file types.
 """
 
 __version__ = "1.0.0"
