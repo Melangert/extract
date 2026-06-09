@@ -1,3 +1,6 @@
+from email import header
+
+
 def detect_format(path: str) -> str | None:
     with open(path, "rb") as f:
         header = f.read(16)
@@ -26,9 +29,25 @@ def detect_format(path: str) -> str | None:
     if path.endswith(".tar"):
         return "tar"
     
+    if header[:7] == b"Rar!\x1a\x07\x00":
+        return "rar"
+    
+    if header[:8] == b"!<arch>\n":
+        return "deb"
+    
+    if header[:4] == b"\xed\xab\xee\xdb":
+        return "rpm"
+
+    if header[:4] == b"\x28\xb5\x2f\xfd" and (path.endswith(".tar.zst") or path.endswith(".tzst")):
+        return "tar.zst"
+
+    if header[:4] == b"\x28\xb5\x2f\xfd":
+         return "zst"
+
     return None
+
 
 
 def list_supported_extensions() -> list:
     return [".zip", ".tar", ".tar.gz", ".tgz", ".tar.bz2", ".tbz2", 
-            ".tar.xz", ".txz", ".gz", ".bz2", ".xz"]
+            ".tar.xz", ".txz", ".gz", ".bz2", ".xz", ".rpm", ".rar", ".deb", ".tar.zst", ".tzst", ".zst"]

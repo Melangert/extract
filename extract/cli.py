@@ -30,7 +30,7 @@ def main():
         return
 
     for archive in args.archives:
-        dest = args.output or archive.split(".")[0]
+        dest = args.output or "."
         try:
             extract_file(archive,dest, verbose=args.verbose)
             print(success(f"Extracted {archive} to {dest}"))
