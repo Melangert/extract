@@ -4,7 +4,9 @@ I built this because i didnt like having to use many different ways of extractin
 ![extract --list](screenshot.png)
 ## Requirements 
 -Python 
+
 -Shell
+
 -Any linux distro
 ## What it does 
 ```
@@ -41,14 +43,23 @@ extract --list
 extract --help
 ```
 ## currently supported formats
+```
 -.zip
+
 -.tar, .tar.gz, .tgz
+
 -.tar.bz2, .tbz2
+
 -.tar.xz, .txz
+
 -.tar.zst, .tzst
+
 -.gz, .bz2, .xz, .zst
+
 -.rar (requires: pip install rarfile)
+
 -.deb
+
 -.rpm (requires: rpm2cpio)
 ```
 
