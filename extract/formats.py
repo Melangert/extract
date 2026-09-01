@@ -8,6 +8,12 @@ def detect_format(path: str) -> str | None:
     if header[:2] == b"PK":
         return "zip"
 
+    if header[:6] == b"7z\xbc\xaf\'\x1c":
+        return "7z"
+    if header[:6] == b"070701" or header[:6] == b"070702":
+        return "cpio"
+    if path.endswith(".cpio"):
+        return "cpio"
     if header[:2] == b"\x1f\x8b" and (path.endswith("tar.gz") or path.endswith(".tgz")):
         return "tar.gz"
     
@@ -49,5 +55,5 @@ def detect_format(path: str) -> str | None:
 
 
 def list_supported_extensions() -> list:
-    return [".zip", ".tar", ".tar.gz", ".tgz", ".tar.bz2", ".tbz2", 
-            ".tar.xz", ".txz", ".gz", ".bz2", ".xz", ".rpm", ".rar", ".deb", ".tar.zst", ".tzst", ".zst"]
+    return [".zip", ".tar", ".tar.gz", ".tgz", ".tar.bz2", ".tbz2",
+            ".tar.xz", ".txz", ".gz", ".bz2", ".xz", ".rpm", ".rar", ".deb", ".tar.zst", ".tzst", ".zst", ".7z", ".cpio"]

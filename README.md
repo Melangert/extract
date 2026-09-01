@@ -16,6 +16,8 @@ rar    -> unrar x file.rar
 extract file.zip
 extract file.tar.gz
 extract file.rar
+extract file.7z
+extract file.cpio
 ```
 ## How to install
 ```bash
@@ -61,5 +63,7 @@ extract --help
 -.deb
 
 -.rpm (requires: rpm2cpio)
+-.7z (requires: p7zip or 7zip)
+-.cpio (requires: cpio)
 ```
 

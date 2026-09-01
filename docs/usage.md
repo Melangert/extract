@@ -15,4 +15,4 @@ extract file.tar.gz -0 ~/Desktop
 - `--help` - show all options
 
 ## Supported formats
-.zip, .tar, .tar.gz, .tgz, .tar.bz2, .tbz2, .tar.xz, .txz, .gz, .bz2, .xz
+.zip, .tar, .tar.gz, .tgz, .tar.bz2, .tbz2, .tar.xz, .txz, .gz, .bz2, .xz, .tar.zst, .tzst, .zst, .rar, .deb, .rpm, .7z, .cpio

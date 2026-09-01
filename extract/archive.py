@@ -47,6 +47,31 @@ def extract_file(src: str, dest: str, verbose: bool = False):
                 if verbose:
                     print(f"  extracting {member.name}")
                 tf.extract(member, dest, filter='data')
+    elif fmt == "7z":
+        try:
+            result = subprocess.run(
+                ["7z", "x", src, f"-o{dest}"],
+                capture_output=True, text=True
+            )
+            if result.returncode != 0:
+                raise RuntimeError(f"Failed to extract 7z: {result.stderr}")
+        except FileNotFoundError:
+            raise RuntimeError("7z support requires the '7z' or 'p7zip' command line tool to be installed")
+        if verbose:
+            print(f"  extracted {src} to {dest}")
+    elif fmt == "cpio":
+        try:
+            with open(src, "rb") as f_in:
+                result = subprocess.run(
+                    ["cpio", "-idm", "--no-absolute-filenames"],
+                    stdin=f_in, cwd=dest, capture_output=True, text=True
+                )
+                if result.returncode != 0:
+                    raise RuntimeError(f"Failed to extract cpio: {result.stderr}")
+        except FileNotFoundError:
+            raise RuntimeError("cpio support requires the 'cpio' command line tool to be installed")
+        if verbose:
+            print(f"  extracted {src} to {dest}")
     elif fmt == "tar":
         with tarfile.open(src, "r:") as tf:
             for member in tf.getmembers():
