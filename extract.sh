@@ -18,8 +18,24 @@ if [[ "$1" == "--setup" ]]; then
         PKG_MGR="dnf"
         SYS_DEPS="p7zip cpio rpm2cpio binutils"
         INSTALL_CMD="sudo dnf install -y"
+    elif command -v zypper &> /dev/null; then
+        PKG_MGR="zypper"
+        SYS_DEPS="p7zip cpio rpm2cpio binutils"
+        INSTALL_CMD="sudo zypper install -y"
+    elif command -v apk &> /dev/null; then
+        PKG_MGR="apk"
+        SYS_DEPS="p7zip cpio rpm2cpio binutils"
+        INSTALL_CMD="sudo apk add"
     else
-        echo "Error: No supported package manager (apt, pacman, dnf) found."
+        echo "Error: No supported package manager found."
+        echo "------------------------------------------------------------------"
+        echo "Manual Installation Guide:"
+        echo "Please install the following tools manually using your system's package manager:"
+        echo "  - 7-Zip (p7zip or p7zip-full)"
+        echo "  - CPIO (cpio)"
+        echo "  - RPM2CPIO (rpm2cpio or rpm-tools)"
+        echo "  - Binutils (binutils)"
+        echo "------------------------------------------------------------------"
         exit 1
     fi
 
