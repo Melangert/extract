@@ -12,7 +12,7 @@ if [[ "$1" == "--setup" ]]; then
         INSTALL_CMD="sudo apt-get update && sudo apt-get install -y"
     elif command -v pacman &> /dev/null; then
         PKG_MGR="pacman"
-        SYS_DEPS="p7zip cpio rpm2cpio binutils"
+        SYS_DEPS="p7zip cpio rpm-tools binutils"
         INSTALL_CMD="sudo pacman -S --noconfirm"
     elif command -v dnf &> /dev/null; then
         PKG_MGR="dnf"
@@ -28,7 +28,7 @@ if [[ "$1" == "--setup" ]]; then
     $INSTALL_CMD $SYS_DEPS
 
     echo "Installing Python dependencies..."
-    pip install --user rarfile zstandard
+    python3 -m pip install --user rarfile zstandard
 
     echo "Setup complete! You can now use extract with all supported formats."
     exit 0
