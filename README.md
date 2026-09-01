@@ -23,6 +23,16 @@ extract file.cpio
 ```bash
 git clone https://github.com/Melangert/extract
 cd extract
+./install.sh
+```
+After installation, run this command to install all required dependencies:
+```bash
+extract --setup
+```
+if you installed from the release cd into the install directory and do the following commands
+```
+tar -xzf extract.tar.gz
+cd extract
 sudo ln -s $(pwd)/extract.sh /usr/local/bin/extract
 ```
 if you installed from the release cd into the install directory and do the following commands
